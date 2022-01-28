@@ -49,10 +49,10 @@ def job():
 
 
 def scheduler():
-    schedule.every(5).seconds.do(job)
+    schedule.every(5).hours.do(job)
     while True:
         schedule.run_pending()
 
-
+job()
 Thread(target=scheduler, args=()).start()
 bot.polling(none_stop=True)
